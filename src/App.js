@@ -5,14 +5,12 @@ import {Cart} from "./pages/Cart/Cart";
 
 
 function App() {
-  
-  const a = 'asd';
 
   return (
     <div className="app">
       <Header />
       <Routes>
-        <Route path="/" element={ <Main prop={a} /> } />
+        <Route path="/" element={ <Main /> } />
         <Route path="/cart" element={ <Cart  /> } />
 
         <Route path="*" element={<Navigate to ="/" />}/>
