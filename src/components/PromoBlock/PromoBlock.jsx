@@ -1,26 +1,10 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, {useContext} from 'react';
+import AppContext from '../../context';
 import {PromoBlockCard} from './PromoBlockCard/PromoBlockCard';
-import {useEffect} from 'react';
 
 
 export const PromoBlock = () => {
-
-  const [promoData, setPromoData] = useState(null); 
-  
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get('https://react-indexeda-default-rtdb.europe-west1.firebasedatabase.app/promo/promo-block.json');
-        setPromoData(response.data);
-      } catch (e) {
-        alert(e);
-      }
-    }
-
-    fetchData();
-  }, []);
-
+  const {promoData} = useContext(AppContext);
 
   return (
     <div className="main-promo container">
