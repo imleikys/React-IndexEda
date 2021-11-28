@@ -308,7 +308,7 @@
   color: #49494F;
 }
 
-.categories {
+.foodblock {
   background-color: #F6F6F6;
   padding: 40px;
 }
@@ -339,13 +339,13 @@
   color: #F37321;
 }
 
-.categories-cards {
+.foodblock-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.categories-card { 
+.food-card { 
   display: flex;
   flex-direction: column;
   max-width: 270px;
@@ -354,11 +354,11 @@
   margin-bottom: 62px;
 }
 
-.categories-card__content {
+.food-card__content {
   padding: 23px;
 }
 
-.categories-card__title {
+.food-card__title {
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;
@@ -366,7 +366,7 @@
   
 }
 
-.categories-card__descr {
+.food-card__descr {
   font-weight: 500;
   font-size: 14px;
   line-height: 23px;
@@ -375,24 +375,24 @@
   margin-bottom: 36px;
 }
 
-.categories-card__info {
+.food-card__info {
   display: flex;
   justify-content: space-between;
 }
 
-.categories-card__text {
+.food-card__text {
   display: flex;
   flex-direction: column;
 }
 
-.categories-card__text-price {
+.food-card__text-price {
   font-weight: 500;
   font-size: 23px;
   line-height: 23px;
   color: #4B4B51;
 }
 
-.categories-card__text-weight {
+.food-card__text-weight {
   font-weight: 500;
   font-size: 17px;
   line-height: 20px;
@@ -534,7 +534,7 @@
     max-width: calc(50% - 15px);
   }
 
-  .categories-card {
+  .food-card {
     max-width: calc(50% - 15px);
   }
 
@@ -604,7 +604,7 @@
     font-size: 15px;
   }
 
-  .categories-card {
+  .food-card {
     max-width: 100%;
   }
 
