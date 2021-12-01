@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 
+
 export const Categories = () => {
   const categories = ['Популярные блюда', 'Овощное', 'Мясное'];
   const [activeCategory, setActiveCategory] = useState(0); 
@@ -21,3 +22,5 @@ export const Categories = () => {
     </>
   )
 }
+
+export default Categories;

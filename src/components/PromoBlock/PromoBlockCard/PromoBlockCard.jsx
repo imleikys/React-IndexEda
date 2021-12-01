@@ -1,5 +1,4 @@
 export const PromoBlockCard = ({price, title, img, deliveryPrice, descr}) => {
-
   return (
     <div className="main-promo__card">
         <img className="card-img" src={img} alt="Index.Eda: SweetBasket" />
@@ -15,3 +14,5 @@ export const PromoBlockCard = ({price, title, img, deliveryPrice, descr}) => {
     </div>
   )
 }
+
+export default PromoBlockCard;

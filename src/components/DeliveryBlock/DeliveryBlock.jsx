@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {DeliveryBlockCard} from './DeliveryBlockCard/DeliveryBlockCard';
+import {DeliveryBlockCard} from '..';
 import AppContext from '../../context';
 
 
@@ -24,3 +24,5 @@ export const DeliveryBlock = () => {
     </section>
   );
 }
+
+export default DeliveryBlock;

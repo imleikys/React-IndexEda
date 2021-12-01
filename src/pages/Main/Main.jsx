@@ -1,30 +1,35 @@
 import React, {useEffect, useState} from 'react'
-import {PromoSlider} from '../../components/PromoSlider/PromoSlider'
-import {PromoBlock} from '../../components/PromoBlock/PromoBlock'
-import {DeliveryBlock} from '../../components/DeliveryBlock/DeliveryBlock';
-import {FoodBlock} from '../../components/FoodBlock/FoodBlock';
 import AppContext from '../../context';
 import axios from 'axios'
+import {PromoSlider, 
+  PromoBlock, 
+  DeliveryBlock, 
+  FoodBlock, 
+  Benefits,
+  Footer,
+} from '../../components';
 
 
-export const Main = (props) => {
-
+export const Main = () => {
   const [promoData, setPromoData] = useState(null);
-  const [deliveryData, setDeliveryData] = useState(null);
   const [foodCards, setFoodCards] = useState(null);
+  const [benefits, setBenefits] = useState(null);
+  const [deliveryData, setDeliveryData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [promoResponse, deliveryResponse, foodCardResponse] = await Promise.all([
+        const [promoResponse, deliveryResponse, foodCardResponse, benefitsResponse] = await Promise.all([
           axios.get("https://react-indexeda-default-rtdb.europe-west1.firebasedatabase.app/promo/promoBlock.json"),
           axios.get("https://react-indexeda-default-rtdb.europe-west1.firebasedatabase.app/delivery.json"),
-          axios.get("https://react-indexeda-default-rtdb.europe-west1.firebasedatabase.app/foodCards.json")
+          axios.get("https://react-indexeda-default-rtdb.europe-west1.firebasedatabase.app/foodCards.json"),
+          axios.get("https://react-indexeda-default-rtdb.europe-west1.firebasedatabase.app/benefits.json"),
         ]);
 
         setPromoData(promoResponse.data);
         setDeliveryData(deliveryResponse.data);
         setFoodCards(foodCardResponse.data);
+        setBenefits(benefitsResponse.data);
       } catch (e) {
         alert(e);
       }
@@ -33,14 +38,14 @@ export const Main = (props) => {
     fetchData();
   }, []);
 
-  console.log(foodCards);
 
   return (
     <AppContext.Provider value={
       {
         promoData,
         deliveryData,
-        foodCards
+        foodCards,
+        benefits
       }
     }>
       <main className="main">
@@ -48,6 +53,8 @@ export const Main = (props) => {
         <PromoBlock />
         <DeliveryBlock />
         <FoodBlock />
+        <Benefits />
+        <Footer />
       </main>
     </AppContext.Provider>
   )

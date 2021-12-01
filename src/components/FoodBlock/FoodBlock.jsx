@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
-import {FoodCard} from './FoodCard/FoodCard'
-import {Categories} from '../Categories/Categories'
+import {FoodCard, Categories} from '../index'
 import AppContext from '../../context'
 
 
@@ -34,3 +33,5 @@ export const FoodBlock = (props) => {
     </section>
   )
 }
+
+export default FoodBlock;

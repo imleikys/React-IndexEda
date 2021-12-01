@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import AppContext from '../../context';
-import {PromoBlockCard} from './PromoBlockCard/PromoBlockCard';
+import {PromoBlockCard} from '..';
 
 
 export const PromoBlock = () => {
@@ -23,3 +23,5 @@ export const PromoBlock = () => {
     </div>
   )
 }
+
+export default PromoBlock;

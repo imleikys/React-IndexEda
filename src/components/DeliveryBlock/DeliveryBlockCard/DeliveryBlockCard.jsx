@@ -6,3 +6,5 @@ export const DeliveryBlockCard = ({img, title, className}) => {
     </div>
   )
 }
+
+export default DeliveryBlockCard;

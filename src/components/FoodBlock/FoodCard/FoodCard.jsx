@@ -1,7 +1,4 @@
-import React from "react";
-
 export const FoodCard = ({img, title, descr, price, weight}) => {
-  
   return (
     <div className="food-card">
       <img
@@ -29,3 +26,5 @@ export const FoodCard = ({img, title, descr, price, weight}) => {
     </div>
   );
 };
+
+export default FoodCard;

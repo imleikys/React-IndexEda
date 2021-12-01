@@ -6,8 +6,7 @@ import searchIcon from '../../assets/img/search-icon.svg';
 import cart from '../../assets/img/cart.svg';
 
 
-function Header() {
-
+export const Header = () => {
   return (
     <header className="header container">
       <Link to="/" className="header-logo">
@@ -30,4 +29,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Header;

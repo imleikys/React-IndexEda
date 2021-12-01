@@ -14,3 +14,5 @@ export const PromoSlider = () => {
     </div>
   );
 }
+
+export default PromoSlider;
