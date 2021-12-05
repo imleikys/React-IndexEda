@@ -5,6 +5,7 @@ export {default as DeliveryBlockCard} from './DeliveryBlock/DeliveryBlockCard/De
 export {default as DeliveryBlock} from './DeliveryBlock/DeliveryBlock';
 export {default as FoodCard} from './FoodBlock/FoodCard/FoodCard';
 export {default as FoodBlock} from './FoodBlock/FoodBlock';
+export {default as FoodBlockCart} from './FoodBlock/FoodBlockCart/FoodBlockCart';
 export {default as Header} from './Header/Header';
 export {default as PromoBlockCard} from './PromoBlock/PromoBlockCard/PromoBlockCard';
 export {default as PromoBlock} from './PromoBlock/PromoBlock';

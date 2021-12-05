@@ -1,3 +1,6 @@
+@import url('./normalize.css');
+
+
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
@@ -98,6 +101,10 @@
 .text-light {
   background-color: black;
   color: #fff;
+}
+
+.main {
+  min-height: calc(100vh - 255px);
 }
 
 .main-slider__slide {
@@ -473,6 +480,9 @@
 
 .footer {
   background: #F6F6F6;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .footer-wrapper {

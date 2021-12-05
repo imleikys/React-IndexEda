@@ -1,10 +1,11 @@
 import React from 'react'
+import {FoodBlockCart} from '../../components'
 
 
 export const Cart = () => {
   return (
-    <div>
-      <h1>CART</h1>
-    </div>
+    <main className="main">
+        <FoodBlockCart />
+    </main>
   )
 }

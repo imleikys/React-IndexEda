@@ -54,7 +54,6 @@ export const Main = () => {
         <DeliveryBlock />
         <FoodBlock />
         <Benefits />
-        <Footer />
       </main>
     </AppContext.Provider>
   )

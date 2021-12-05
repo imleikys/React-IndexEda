@@ -3,7 +3,7 @@ import {FoodCard, Categories} from '../index'
 import AppContext from '../../context'
 
 
-export const FoodBlock = (props) => {
+export const FoodBlock = () => {
   const {foodCards} = useContext(AppContext);
   const [cardsForRender, setCardsForRender] = useState(3);
 
