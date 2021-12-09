@@ -22,7 +22,7 @@ export const Header = () => {
         <Link to="/" className="header-buttons__login">Войти</Link>
         <Link to="/cart" className="header-buttons__cart">
           <img src={cart} alt="Index.Eda: Cart" />
-          <span className="header-buttons__cart-counter">12</span>
+          <span className="header-buttons__cart-counter">0</span>
         </Link>
       </div>
     </header>

@@ -1,9 +1,12 @@
-import React, {useState } from 'react'
+import React from 'react'
 import {FoodCard, Categories} from '../../index'
+import {useSelector} from 'react-redux'
 
 
 export const FoodBlockCart = () => {
-  const [cardsInCart, setCardsInCart] = useState(null);
+  const items = useSelector((state) => state.items);
+  const cartItems = Object.keys(items).map((key) => items[key].items);
+  console.log(cartItems);
 
   return (
     <section className="foodblock">
@@ -11,7 +14,8 @@ export const FoodBlockCart = () => {
         <h1 className="foodblock-title">Корзина</h1>
         <div className="foodblock-cards">
           {
-            cardsInCart && cardsInCart.map((foodCard, index) => {
+            cartItems && cartItems.map((foodCard, index) => {
+              console.log(foodCard)
               return <FoodCard 
                 img={foodCard.img}
                 title={foodCard.title}

@@ -1,4 +1,12 @@
-export const FoodCard = ({img, title, descr, price, weight}) => {
+import {useDispatch} from "react-redux";
+import {addItemToCart} from "../../../redux/actions/cart";
+
+export const FoodCard = ({img, title, descr, price, weight, id, onAdd}) => {
+  const dispatch = useDispatch();
+  const onAddHandler = () => {
+    dispatch(addItemToCart({img, title, descr, price, weight, id}));
+  }
+
   return (
     <div className="food-card">
       <img
@@ -18,7 +26,7 @@ export const FoodCard = ({img, title, descr, price, weight}) => {
             <span className="food-card__text-price">{price} ₽</span>
             <span className="food-card__text-weight">{weight} гр</span>
           </div>
-          <button className="button button-outline button-small">
+          <button onClick={onAddHandler} className="button button-outline button-small">
             В корзину
           </button>
         </div>
