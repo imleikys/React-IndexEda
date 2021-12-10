@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import AppContext from '../../context';
 import axios from 'axios'
-import {useDispatch} from 'react-redux';
-import {addItemToCart} from '../../redux/actions/cart';
 import {PromoSlider, 
   PromoBlock, 
   DeliveryBlock, 
@@ -17,11 +15,6 @@ export const Main = () => {
   const [benefits, setBenefits] = useState(null);
   const [deliveryData, setDeliveryData] = useState(null);
 
-  // const dispatch = useDispatch();
-  // const onAddHandler = (item) => {
-  //   console.log(item);
-  //   dispatch(addItemToCart(item));
-  // } 
 
   useEffect(() => {
     async function fetchData() {

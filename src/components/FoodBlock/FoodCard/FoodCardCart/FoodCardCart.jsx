@@ -1,12 +1,11 @@
-import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {addItemToCart, removeItemFromCart} from "../../../redux/actions/cart";
+import {removeItemFromCart} from "../../../../redux/actions/cart";
+
 
 export const FoodCardCart = ({img, title, descr, price, weight, id}) => {
   const dispatch = useDispatch();
 
   const onRemoveHandler = () => {
-    console.log(id);
     dispatch(removeItemFromCart(id));
   }
 

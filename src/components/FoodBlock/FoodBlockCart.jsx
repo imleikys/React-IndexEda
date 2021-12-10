@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {FoodCardCart} from '../../index'
+import React from 'react'
+import {FoodCardCart} from '../index'
 import {useSelector} from 'react-redux'
 
 
@@ -14,7 +14,6 @@ export const FoodBlockCart = () => {
         <div className="foodblock-cards">
           {
             cartItems && cartItems.map((foodCard, index) => {
-              console.log(foodCard)
               return <FoodCardCart 
                 img={foodCard.img}
                 title={foodCard.title}
@@ -27,6 +26,9 @@ export const FoodBlockCart = () => {
             })  
           }
         </div>
+        {
+          cartItems.length !== 0 ? <button className="button button-outline button-big">Оформить заказ</button> : null
+        }
       </div>
     </section>
   )
