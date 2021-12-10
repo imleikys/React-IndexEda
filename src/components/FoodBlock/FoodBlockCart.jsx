@@ -1,5 +1,5 @@
 import React from 'react'
-import {FoodCardCart} from '../index'
+import {FoodCardCart} from '../index';
 import {useSelector} from 'react-redux'
 
 
