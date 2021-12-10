@@ -1,14 +1,13 @@
 import {useState} from "react";
 import {useDispatch} from "react-redux";
-import {addItemToCart} from "../../../redux/actions/cart";
+import {addItemToCart, removeItemFromCart} from "../../../redux/actions/cart";
 
-export const FoodCard = ({img, title, descr, price, weight, id, onAdd}) => {
-  const [label, setLabel] = useState('Купить');
+export const FoodCardCart = ({img, title, descr, price, weight, id}) => {
   const dispatch = useDispatch();
 
-  const onAddHandler = () => {
-    dispatch(addItemToCart({img, title, descr, price, weight, id}));
-    setLabel("В корзине")
+  const onRemoveHandler = () => {
+    console.log(id);
+    dispatch(removeItemFromCart(id));
   }
 
   return (
@@ -30,8 +29,8 @@ export const FoodCard = ({img, title, descr, price, weight, id, onAdd}) => {
             <span className="food-card__text-price">{price} ₽</span>
             <span className="food-card__text-weight">{weight} гр</span>
           </div>
-          <button onClick={onAddHandler} className="button button-outline button-small">
-            {label}
+          <button onClick={onRemoveHandler} className="button button-outline button-small">
+            Удалить
           </button>
         </div>
       </div>
@@ -39,4 +38,4 @@ export const FoodCard = ({img, title, descr, price, weight, id, onAdd}) => {
   );
 };
 
-export default FoodCard;
+export default FoodCardCart;

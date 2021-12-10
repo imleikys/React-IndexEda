@@ -1,12 +1,11 @@
-import React from 'react'
-import {FoodCard, Categories} from '../../index'
+import React, {useState} from 'react'
+import {FoodCardCart} from '../../index'
 import {useSelector} from 'react-redux'
 
 
 export const FoodBlockCart = () => {
   const items = useSelector((state) => state.items);
   const cartItems = Object.keys(items).map((key) => items[key].items);
-  console.log(cartItems);
 
   return (
     <section className="foodblock">
@@ -16,12 +15,14 @@ export const FoodBlockCart = () => {
           {
             cartItems && cartItems.map((foodCard, index) => {
               console.log(foodCard)
-              return <FoodCard 
+              return <FoodCardCart 
                 img={foodCard.img}
                 title={foodCard.title}
                 descr={foodCard.descr}
                 price={foodCard.price}
                 weight={foodCard.weight}
+                id={foodCard.id}
+                key={foodCard.id}
               />
             })  
           }

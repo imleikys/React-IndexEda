@@ -4,9 +4,12 @@ import {Link} from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import searchIcon from '../../assets/img/search-icon.svg';
 import cart from '../../assets/img/cart.svg';
+import { useSelector } from 'react-redux';
 
 
 export const Header = () => {
+  const totalItems = useSelector((state) => state.totalItems);
+
   return (
     <header className="header container">
       <Link to="/" className="header-logo">
@@ -22,7 +25,7 @@ export const Header = () => {
         <Link to="/" className="header-buttons__login">Войти</Link>
         <Link to="/cart" className="header-buttons__cart">
           <img src={cart} alt="Index.Eda: Cart" />
-          <span className="header-buttons__cart-counter">0</span>
+          <span className="header-buttons__cart-counter">{totalItems}</span>
         </Link>
       </div>
     </header>

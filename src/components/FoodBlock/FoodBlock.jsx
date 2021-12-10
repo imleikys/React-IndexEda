@@ -3,7 +3,7 @@ import {FoodCard, Categories} from '../index'
 import AppContext from '../../context'
 
 
-export const FoodBlock = ({onAddItemToCart}) => {
+export const FoodBlock = () => {
   const {foodCards} = useContext(AppContext);
   const [cardsForRender, setCardsForRender] = useState(3);
 
@@ -23,7 +23,6 @@ export const FoodBlock = ({onAddItemToCart}) => {
                   weight={foodCard.weight}
                   id={foodCard.id}
                   key={foodCard.id}
-                  
                 />
               } else {
                 return null

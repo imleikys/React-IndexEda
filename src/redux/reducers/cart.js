@@ -9,9 +9,17 @@ export const CartReducer = (state = initialState, action) => {
       const actualItems = {...state.items, [action.payload.id]: {items: action.payload}};
       const actualTotal = Object.keys(actualItems).length;
       
-      return {...state, items: actualItems, totalItems: actualTotal}
+      return {...state, items: actualItems, totalItems: actualTotal};
     }
 
+    case "REMOVE_ITEM_FROM_CART": {
+      const actualItems = {...state.items};
+      delete actualItems[action.payload];
+
+      const actualTotal = Object.keys(actualItems).length;
+
+      return {...state, items: actualItems, totalItems: actualTotal};
+    }
     default: 
       return state;
   }

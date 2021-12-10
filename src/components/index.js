@@ -4,6 +4,7 @@ export {default as Categories} from './Categories/Categories';
 export {default as DeliveryBlockCard} from './DeliveryBlock/DeliveryBlockCard/DeliveryBlockCard';
 export {default as DeliveryBlock} from './DeliveryBlock/DeliveryBlock';
 export {default as FoodCard} from './FoodBlock/FoodCard/FoodCard';
+export {default as FoodCardCart} from './FoodBlock/FoodCardCart/FoodCardCart';
 export {default as FoodBlock} from './FoodBlock/FoodBlock';
 export {default as FoodBlockCart} from './FoodBlock/FoodBlockCart/FoodBlockCart';
 export {default as Header} from './Header/Header';
