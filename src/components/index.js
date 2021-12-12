@@ -12,3 +12,5 @@ export {default as PromoBlockCard} from './PromoBlock/PromoBlockCard/PromoBlockC
 export {default as PromoBlock} from './PromoBlock/PromoBlock';
 export {default as PromoSlider} from './PromoSlider/PromoSlider';
 export {default as Footer} from './Footer/Footer';
+export {default as Modal} from './Modal/Modal';
+export {default as ModalCard} from './ModalCard/ModalCard';

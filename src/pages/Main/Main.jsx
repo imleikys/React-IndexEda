@@ -6,6 +6,7 @@ import {PromoSlider,
   DeliveryBlock, 
   FoodBlock, 
   Benefits,
+  Modal,
 } from '../../components';
 
 
@@ -14,6 +15,7 @@ export const Main = () => {
   const [foodCards, setFoodCards] = useState(null);
   const [benefits, setBenefits] = useState(null);
   const [deliveryData, setDeliveryData] = useState(null);
+  const [isModalActive, setIsModalActive] = useState(false);
 
 
   useEffect(() => {
@@ -44,10 +46,13 @@ export const Main = () => {
         promoData,
         deliveryData,
         foodCards,
-        benefits
+        benefits,
+        isModalActive,
+        setIsModalActive
       }
     }>
       <main className="main">
+        <Modal />
         <PromoSlider />
         <PromoBlock />
         <DeliveryBlock />

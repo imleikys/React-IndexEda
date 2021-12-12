@@ -7,8 +7,6 @@ export const FoodBlock = () => {
   const {foodCards} = useContext(AppContext);
   const [cardsForRender, setCardsForRender] = useState(3);
 
-  foodCards && console.log(foodCards.length);
-  console.log(cardsForRender);
   return (
     <section className="foodblock">
       <div className="foodblock-wrapper container">

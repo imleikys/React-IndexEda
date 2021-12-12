@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 
 export const Header = () => {
-  const totalItems = useSelector((state) => state.totalItems);
+  const totalItems = useSelector(({CartReducer}) => CartReducer.totalItems);
 
   return (
     <header className="header container">
