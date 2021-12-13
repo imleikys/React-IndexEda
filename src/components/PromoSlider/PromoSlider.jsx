@@ -1,22 +1,19 @@
 import {useContext} from "react";
-import {useDispatch} from "react-redux";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import AppContext from "../../context";
 import {clearModal, setItemsForModal} from "../../redux/actions/modal";
 
 
 export const PromoSlider = () => {
-  const {setIsModalActive, foodCards} = useContext(AppContext);
+  const {setIsModalActive} = useContext(AppContext);
+  const foodCards = useSelector(({response}) => response.foodCards);
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.items);
   
   const onClickHandler = () => {
     dispatch(clearModal());
 
-    let itemsForModal;
     if (foodCards.length !== 0) {
-      itemsForModal = foodCards.filter((card) => card.id % 2 === 0);
-      dispatch(setItemsForModal(itemsForModal));
+      dispatch(setItemsForModal(foodCards, "tag-veg"));
       setIsModalActive(true);
     }
   }

@@ -1,16 +1,18 @@
-import React, { useContext, useState } from 'react'
+import React, {useState} from 'react'
 import {FoodCard, Categories} from '../index'
-import AppContext from '../../context'
+import {useSelector} from 'react-redux';
 
 
-export const FoodBlock = () => {
-  const {foodCards} = useContext(AppContext);
+export const FoodBlock = ({withoutCategories}) => {
   const [cardsForRender, setCardsForRender] = useState(3);
+  const foodCards = useSelector(({response}) => response.foodCards);
 
   return (
     <section className="foodblock">
       <div className="foodblock-wrapper container">
-        <Categories />
+        {
+          withoutCategories ? null : <Categories />
+        }
         <div className="foodblock-cards">
           {
             foodCards && foodCards.map((foodCard, index) => {
@@ -30,7 +32,7 @@ export const FoodBlock = () => {
             })  
           }
         </div>
-        {foodCards && 
+        { foodCards && 
           foodCards.length !== cardsForRender + 1 ? 
             <button className="button button-outline button-big" onClick={() => setCardsForRender(cardsForRender + 4)}>Больше блюд</button> :
             null}

@@ -4,11 +4,11 @@ import {Link} from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import searchIcon from '../../assets/img/search-icon.svg';
 import cart from '../../assets/img/cart.svg';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
 
 export const Header = () => {
-  const totalItems = useSelector(({CartReducer}) => CartReducer.totalItems);
+  const totalItems = useSelector(({cart}) => cart.totalItems);
 
   return (
     <header className="header container">

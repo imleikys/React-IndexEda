@@ -564,6 +564,7 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 23px;
+  margin-bottom: 15px;
 }
 
 .modal-cards {
@@ -574,6 +575,7 @@
   height: 460px;
   overflow-y: auto;
   border-bottom: 2px solid #3C3939;;
+  padding: 10px;
 }
 
 .modal-card {
@@ -582,6 +584,7 @@
   align-items: center;
   justify-content: center;
   max-height: 240px;
+  padding: 15px;
 }
 
 .modal-card__img {

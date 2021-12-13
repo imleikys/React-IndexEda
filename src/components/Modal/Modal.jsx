@@ -8,8 +8,8 @@ import { addItemToCart } from '../../redux/actions/cart';
 
 export const Modal = () => {
   const {isModalActive, setIsModalActive} = useContext(AppContext);
-  const items = useSelector(({ModalReducer}) => ModalReducer.modalItems);
-  const totalPrice = useSelector(({ModalReducer}) => ModalReducer.totalPrice);
+  const items = useSelector(({modal}) => modal.modalItems);
+  const totalPrice = useSelector(({modal}) => modal.totalPrice);
   const dispatch = useDispatch();
 
   const onOrderHandler = () => {

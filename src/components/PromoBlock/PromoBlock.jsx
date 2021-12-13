@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
-import AppContext from '../../context';
+import React from 'react';
 import {PromoBlockCard} from '..';
+import {useSelector} from 'react-redux';
 
 
 export const PromoBlock = () => {
-  const {promoData} = useContext(AppContext);
+  const promoData = useSelector(({response}) => response.promo);
 
   return (
     <div className="main-promo container">
@@ -16,6 +16,7 @@ export const PromoBlock = () => {
             img={block.img}
             deliveryPrice={block.deliveryPrice}
             descr={block.descr}
+            type={block.type}
             key={index}
           />
         ))

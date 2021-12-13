@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import {BenefitsCard} from '..';
-import AppContext from '../../context';
 
 
 export const Benefits = () => {
-  const {benefits} = useContext(AppContext);
+  const benefits = useSelector(({response}) => response.benefits);
 
   return (
     <section className="benefits container">

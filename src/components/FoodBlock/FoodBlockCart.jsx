@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux'
 
 
 export const FoodBlockCart = () => {
-  const items = useSelector(({CartReducer}) => CartReducer.items);
+  const items = useSelector(({cart}) => cart.items);
   const cartItems = Object.keys(items).map((key) => items[key].items);
 
   return (

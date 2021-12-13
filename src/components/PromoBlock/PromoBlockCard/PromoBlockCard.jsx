@@ -1,26 +1,27 @@
 import {useContext} from "react";
+import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
+import {Link} from 'react-router-dom';
 import AppContext from "../../../context";
 import {clearModal, setItemsForModal} from "../../../redux/actions/modal";
 
 
-export const PromoBlockCard = ({price, title, img, deliveryPrice, descr}) => {
+export const PromoBlockCard = ({price, title, img, deliveryPrice, descr, type}) => {
   const dispatch = useDispatch()
-  const {foodCards, setIsModalActive} = useContext(AppContext);
+  const {setIsModalActive} = useContext(AppContext);
+  const foodCards = useSelector(({response}) => response.foodCards);
 
   const onClickHandler = () => {
     dispatch(clearModal());
     
-    let itemsForModal;
     if (foodCards.length !== 0) {
-      itemsForModal = foodCards.filter((card) => card.id % 3 === 0);
-      dispatch(setItemsForModal(itemsForModal));
+      dispatch(setItemsForModal(foodCards, type));
       setIsModalActive(true);
     }
   }
 
   return (
-    <div className="main-promo__card">
+    <div onClick={() => onClickHandler()} className="main-promo__card">
         <img className="card-img" src={img} alt="Index.Eda: SweetBasket" />
         <div className="card-header">
           <h3 className="card-title">{title}</h3>
@@ -29,7 +30,9 @@ export const PromoBlockCard = ({price, title, img, deliveryPrice, descr}) => {
         <div className="card-footer">
           <strong className="card-price">ОТ {price}</strong>
           <span className="card-delivery">стоимость доставки до {deliveryPrice}</span>
-          <button onClick={onClickHandler} className="button button-default" href="/">Собрать корзину</button>
+          <Link to="/delivery" className="button button-default">
+            Собрать корзину
+          </Link>
         </div>
     </div>
   )

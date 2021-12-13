@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import AppContext from '../../context';
+import {useDispatch} from 'react-redux';
 import axios from 'axios'
 import {PromoSlider, 
   PromoBlock, 
@@ -8,13 +9,11 @@ import {PromoSlider,
   Benefits,
   Modal,
 } from '../../components';
+import { setBenefits, setDelivery, setFoodCards, setPromo } from '../../redux/actions/response';
 
 
 export const Main = () => {
-  const [promoData, setPromoData] = useState(null);
-  const [foodCards, setFoodCards] = useState(null);
-  const [benefits, setBenefits] = useState(null);
-  const [deliveryData, setDeliveryData] = useState(null);
+  const dispatch = useDispatch();
   const [isModalActive, setIsModalActive] = useState(false);
 
 
@@ -28,25 +27,21 @@ export const Main = () => {
           axios.get("https://react-indexeda-default-rtdb.europe-west1.firebasedatabase.app/benefits.json"),
         ]);
 
-        setPromoData(promoResponse.data);
-        setDeliveryData(deliveryResponse.data);
-        setFoodCards(foodCardResponse.data);
-        setBenefits(benefitsResponse.data);
+        dispatch(setPromo(promoResponse.data));
+        dispatch(setDelivery(deliveryResponse.data));
+        dispatch(setFoodCards(foodCardResponse.data));
+        dispatch(setBenefits(benefitsResponse.data));
       } catch (e) {
         alert(e);
       }
     }
 
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <AppContext.Provider value={
       {
-        promoData,
-        deliveryData,
-        foodCards,
-        benefits,
         isModalActive,
         setIsModalActive
       }

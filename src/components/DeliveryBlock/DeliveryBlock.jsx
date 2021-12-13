@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import {DeliveryBlockCard} from '..';
-import AppContext from '../../context';
 
 
 export const DeliveryBlock = () => {
-  const {deliveryData} = useContext(AppContext);
+  const deliveryData = useSelector(({response}) => response.delivery);
 
   return (
     <section className="delivery-week container">
