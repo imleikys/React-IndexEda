@@ -7,6 +7,9 @@ export const FoodBlock = ({withoutCategories}) => {
   const [cardsForRender, setCardsForRender] = useState(3);
   const foodCards = useSelector(({response}) => response.foodCards);
 
+  const filter = useSelector(({filter}) => filter.filter);
+  const filteredCards = filter !== 'default' ? foodCards.filter((foodCard) => foodCard.type === filter) : foodCards;
+
   return (
     <section className="foodblock">
       <div className="foodblock-wrapper container">
@@ -15,7 +18,7 @@ export const FoodBlock = ({withoutCategories}) => {
         }
         <div className="foodblock-cards">
           {
-            foodCards && foodCards.map((foodCard, index) => {
+            filteredCards && filteredCards.map((foodCard, index) => {
               if (index <= cardsForRender) {
                 return <FoodCard 
                   img={foodCard.img}
@@ -32,8 +35,8 @@ export const FoodBlock = ({withoutCategories}) => {
             })  
           }
         </div>
-        { foodCards && 
-          foodCards.length !== cardsForRender + 1 ? 
+        { filteredCards && 
+          cardsForRender + 1 < filteredCards.length ? 
             <button className="button button-outline button-big" onClick={() => setCardsForRender(cardsForRender + 4)}>Больше блюд</button> :
             null}
       </div>

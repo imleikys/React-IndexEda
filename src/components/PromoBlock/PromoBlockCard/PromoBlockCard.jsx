@@ -1,23 +1,12 @@
-import {useContext} from "react";
-import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {Link} from 'react-router-dom';
-import AppContext from "../../../context";
-import {clearModal, setItemsForModal} from "../../../redux/actions/modal";
+import {setFilter} from "../../../redux/actions/filters";
 
 
 export const PromoBlockCard = ({price, title, img, deliveryPrice, descr, type}) => {
   const dispatch = useDispatch()
-  const {setIsModalActive} = useContext(AppContext);
-  const foodCards = useSelector(({response}) => response.foodCards);
-
   const onClickHandler = () => {
-    dispatch(clearModal());
-    
-    if (foodCards.length !== 0) {
-      dispatch(setItemsForModal(foodCards, type));
-      setIsModalActive(true);
-    }
+    dispatch(setFilter(type));
   }
 
   return (
