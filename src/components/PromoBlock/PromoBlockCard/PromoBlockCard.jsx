@@ -1,12 +1,12 @@
 import {useDispatch} from "react-redux";
 import {Link} from 'react-router-dom';
-import {setFilter} from "../../../redux/actions/filters";
+import {setFilterType} from "../../../redux/actions/filters";
 
 
 export const PromoBlockCard = ({price, title, img, deliveryPrice, descr, type}) => {
   const dispatch = useDispatch()
   const onClickHandler = () => {
-    dispatch(setFilter(type));
+    dispatch(setFilterType('type', type));
   }
 
   return (

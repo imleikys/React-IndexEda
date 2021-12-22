@@ -8,7 +8,8 @@ export const FoodBlock = ({withoutCategories}) => {
   const foodCards = useSelector(({response}) => response.foodCards);
 
   const filter = useSelector(({filter}) => filter.filter);
-  const filteredCards = filter !== 'default' ? foodCards.filter((foodCard) => foodCard.type === filter) : foodCards;
+  const filterType = useSelector(({filter}) => filter.filterType);
+  const filteredCards = filterType !== 'default' ? foodCards.filter((foodCard) => foodCard.type === filter) : foodCards;
 
   return (
     <section className="foodblock">

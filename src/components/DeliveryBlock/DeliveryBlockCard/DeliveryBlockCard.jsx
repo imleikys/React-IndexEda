@@ -1,12 +1,12 @@
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
-import {setFilter} from "../../../redux/actions/filters";
+import {setFilterType} from "../../../redux/actions/filters";
 
 
 export const DeliveryBlockCard = ({img, title, className}) => {
   const dispatch = useDispatch();
   const onClickHandler = () => {
-    dispatch(setFilter(className));
+    dispatch(setFilterType('type', className));
   }
 
   return (

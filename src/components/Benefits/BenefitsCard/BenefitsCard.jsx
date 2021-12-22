@@ -1,5 +1,5 @@
 export const BenefitsCard = ({img, title, descr}) => {
-  return (
+return (
     <div className="benefits-card">
       <img
         className="benefits-card__img"

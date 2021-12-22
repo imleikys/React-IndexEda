@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux';
+import {setFilterType} from '../../redux/actions/filters';
 import {useEffect} from 'react';
-import {setFilter} from '../../redux/actions/filters';
 
 
 export const Categories = () => {
@@ -10,7 +10,7 @@ export const Categories = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setFilter('default'));
+    dispatch(setFilterType('default'));
   }, [dispatch]);
 
   const onClickHandler = (index) => {
@@ -18,15 +18,15 @@ export const Categories = () => {
 
     switch(index) {
       case 0: {
-        dispatch(setFilter('default'));
+        dispatch(setFilterType('default'));
         break;
       }
       case 1: {
-        dispatch(setFilter('tag-veg'));
+        dispatch(setFilterType('type', 'tag-veg'));
         break;
       }
       case 2: {
-        dispatch(setFilter('tag-meat'));
+        dispatch(setFilterType('type', 'tag-meat'));
         break;
       }
 
