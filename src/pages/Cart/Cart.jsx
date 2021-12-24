@@ -1,11 +1,11 @@
-import React from 'react'
-import {FoodBlockCart} from '../../components'
+import React from 'react';
+import {FoodBlockCart} from '../../components';
 
 
 export const Cart = () => {
   return (
     <main className="main">
-        <FoodBlockCart />
+      <FoodBlockCart />
     </main>
   )
 }
