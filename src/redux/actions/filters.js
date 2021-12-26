@@ -4,3 +4,12 @@ export const setFilterType = (filterType, filter) => ({
   filterType: filterType,
   filter: filter,
 })
+
+export const setNameFilter = (name) => ({
+  type: "SET_NAME_FILTER",
+  payload: name,
+})
+
+export const clearFilters = () => ({
+  type: "CLEAR_FILTERS",
+})

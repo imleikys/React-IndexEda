@@ -4,19 +4,30 @@ import {Link} from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
 import searchIcon from '../../assets/img/search-icon.svg';
 import cart from '../../assets/img/cart.svg';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {clearFilters, setNameFilter} from '../../redux/actions/filters';
 
 
 export const Header = () => {
   const totalItems = useSelector(({cart}) => cart.totalItems);
+  const dispatch = useDispatch();
+
+  const handleSearch = (e) => {
+    dispatch(setNameFilter(e.target.value));
+  }
+
+  const handleRoute = () => {
+    console.log('dsa');
+    dispatch(clearFilters());
+  }
 
   return (
     <header className="header container">
-      <Link to="/" className="header-logo">
+      <Link to="/" onClick={handleRoute} className="header-logo">
         <img src={logo} alt="Index.Eda: Logotype" />
       </Link>
       <form className="header-search" action="#" >
-        <input className="header-search__input" type="search" placeholder="Блюда" />
+        <input onChange={handleSearch} className="header-search__input" type="search" placeholder="Блюда" />
         <button className="header-search__btn">
           <img src={searchIcon} alt="IndexEda: Search"/>
         </button>

@@ -2,6 +2,19 @@ import React, {useState} from 'react'
 import {FoodCard, Categories} from '../index'
 import {useSelector} from 'react-redux';
 
+const CheckFilters = (filterType, nameFilter, foodCards, filter) => {
+  if (filterType === 'default' && nameFilter === '') {
+    return foodCards;
+  } 
+
+  if (filterType !== 'default') {
+    return foodCards.filter((foodCard) => foodCard.type === filter)
+  }
+
+  if (nameFilter !== '') {
+    return foodCards.filter((foodCard) => foodCard.title.toLowerCase().includes(nameFilter.toLowerCase()));
+  }
+}
 
 export const FoodBlock = ({withoutCategories}) => {
   const [cardsForRender, setCardsForRender] = useState(3);
@@ -9,7 +22,10 @@ export const FoodBlock = ({withoutCategories}) => {
 
   const filter = useSelector(({filter}) => filter.filter);
   const filterType = useSelector(({filter}) => filter.filterType);
-  const filteredCards = filterType !== 'default' ? foodCards.filter((foodCard) => foodCard.type === filter) : foodCards;
+  const nameFilter = useSelector(({filter}) => filter.nameFilter);
+  const filteredCards = CheckFilters(filterType, nameFilter, foodCards, filter);
+
+  
 
   return (
     <section className="foodblock">

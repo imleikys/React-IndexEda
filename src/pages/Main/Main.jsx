@@ -10,12 +10,13 @@ import {PromoSlider,
   Modal,
 } from '../../components';
 import { setBenefits, setDelivery, setFoodCards, setPromo } from '../../redux/actions/response';
+import { useSelector } from 'react-redux';
 
 
 export const Main = () => {
   const dispatch = useDispatch();
   const [isModalActive, setIsModalActive] = useState(false);
-
+  const nameFilter = useSelector(({filter}) => filter.nameFilter);
 
   useEffect(() => {
     async function fetchData() {
@@ -47,12 +48,23 @@ export const Main = () => {
       }
     }>
       <main className="main">
-        <Modal />
-        <PromoSlider />
-        <PromoBlock />
-        <DeliveryBlock />
-        <FoodBlock />
-        <Benefits />
+        {
+          nameFilter === '' ? (
+            <>
+              <Modal />
+              <PromoSlider />
+              <PromoBlock />
+              <DeliveryBlock />
+              <FoodBlock />
+              <Benefits />
+            </>
+          ) : (
+            <>
+              <FoodBlock />
+            </>
+          )
+        }
+        
       </main>
     </AppContext.Provider>
   )
