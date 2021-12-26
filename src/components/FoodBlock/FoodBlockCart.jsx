@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {FoodCardCart} from "../index";
 import {useSelector} from "react-redux";
 import {useNavigate} from "react-router";
-import emptyCart from '../../assets/img/emptyCart.jpg';
+import emptyCart from '../../assets/img/emptyCart.png';
 
 
 export const FoodBlockCart = () => {

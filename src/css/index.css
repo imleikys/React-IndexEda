@@ -352,6 +352,29 @@
   justify-content: space-between;
 }
 
+.foodblock-cards-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.foodblock-cards-empty__title {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 23px;
+}
+
+.foodblock-cards-empty__descr {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: #686870;
+  max-width: 220px;
+  text-align: center;
+}
+
 .food-card { 
   display: flex;
   flex-direction: column;
@@ -638,6 +661,7 @@ button {
   text-align: center;
   justify-content: center;
   align-items: center;
+  padding-top: 100px;
 }
 
 .empty-cart-title {

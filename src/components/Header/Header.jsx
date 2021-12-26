@@ -12,12 +12,15 @@ export const Header = () => {
   const totalItems = useSelector(({cart}) => cart.totalItems);
   const dispatch = useDispatch();
 
-  const handleSearch = (e) => {
-    dispatch(setNameFilter(e.target.value));
+  const handleSearch = (event) => {
+    dispatch(setNameFilter(event.target.value));
+  }
+
+  const handleUnFocus = (event) => {
+    event.target.value = "";
   }
 
   const handleRoute = () => {
-    console.log('dsa');
     dispatch(clearFilters());
   }
 
@@ -27,7 +30,7 @@ export const Header = () => {
         <img src={logo} alt="Index.Eda: Logotype" />
       </Link>
       <form className="header-search" action="#" >
-        <input onChange={handleSearch} className="header-search__input" type="search" placeholder="Блюда" />
+        <input onChange={handleSearch} onBlur={handleUnFocus} className="header-search__input" type="search" placeholder="Блюда" />
         <button className="header-search__btn">
           <img src={searchIcon} alt="IndexEda: Search"/>
         </button>
