@@ -9,8 +9,9 @@ import {PromoSlider,
   Benefits,
   Modal,
 } from '../../components';
-import { setBenefits, setDelivery, setFoodCards, setPromo } from '../../redux/actions/response';
-import { useSelector } from 'react-redux';
+import {setBenefits, setDelivery, setFoodCards, setPromo} from '../../redux/actions/response';
+import {useSelector} from 'react-redux';
+import {setIsLoading} from '../../redux/actions/loading';
 
 
 export const Main = () => {
@@ -32,6 +33,8 @@ export const Main = () => {
         dispatch(setDelivery(deliveryResponse.data));
         dispatch(setFoodCards(foodCardResponse.data));
         dispatch(setBenefits(benefitsResponse.data));
+        
+        dispatch(setIsLoading(false));
       } catch (e) {
         alert(e);
       }

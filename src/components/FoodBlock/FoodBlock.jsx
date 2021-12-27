@@ -27,7 +27,6 @@ export const FoodBlock = ({withoutCategories}) => {
 
   if (!withoutCategories) {
     withoutCategories = nameFilter.length > 0;
-    console.log(withoutCategories);
   }
 
   return (
