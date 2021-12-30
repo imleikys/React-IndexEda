@@ -1,3 +1,4 @@
+import React from "react";
 import Header from "./components/Header/Header";
 import {Routes, Route, Navigate} from 'react-router';
 import {Main} from "./pages/Main/Main";
