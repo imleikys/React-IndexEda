@@ -1,13 +1,15 @@
 import React, {useState} from "react";
 import {FoodCardCart} from "../index";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router";
 import emptyCart from '../../assets/img/emptyCart.png';
+import {clearCart} from "../../redux/actions/cart";
 
 
 export const FoodBlockCart = () => {
   const items = useSelector(({ cart }) => cart.items);
   const cartItems = Object.keys(items).map((key) => items[key].items);
+  const dispatch = useDispatch();
 
   const [isEmpty, setIsEmpty] = useState(cartItems.length === 0);
   const navigate = useNavigate();
@@ -15,6 +17,11 @@ export const FoodBlockCart = () => {
   const handleRoute = () => {
     navigate("/");
   };
+
+  const onClearHandler = () => {
+    setIsEmpty(true);
+    dispatch(clearCart());
+  }
 
   return (
     <>
@@ -53,7 +60,7 @@ export const FoodBlockCart = () => {
                 })}
             </div>
             {cartItems.length !== 0 ? (
-              <button onClick={() => setIsEmpty(true)} className="button button-outline button-big">
+              <button onClick={() => onClearHandler()} className="button button-outline button-big">
                 Оформить заказ
               </button>
             ) : (
